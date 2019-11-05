@@ -232,10 +232,15 @@
             console.log(url);
             console.log(newUser);
 
-            $.post(url + "api/friends", newUser, function(data) {
-                $("#bestFriend").text(data.name);
-                $("#bestFriendPhoto").attr("src", data.photo);
-                $("#bestFriendModal"),modal("toggle");
+            $.post("api/friends", newUser, function (data) {
+                console.log(data);
+                console.log("Searching The Database!")
+                $("#name").val("");
+                $("#photo").val("");
+
+                // $("#bestFriend").text(data.name);
+                // $("#bestFriendPhoto").attr("src", data.photo);
+                // $("#bestFriendModal"), modal("toggle");
             })
         }
     })

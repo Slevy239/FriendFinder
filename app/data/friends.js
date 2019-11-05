@@ -27,6 +27,5 @@ var friendsArr = [
     }
 ];
 
-console.log(friendsArr[4].scores[8]);
-
+    
 module.exports = friendsArr;
