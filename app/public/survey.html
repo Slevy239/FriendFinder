@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survey</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- Including Font Awesome Icons -->
     <script src="https://use.fontawesome.com/b38c8ed4c7.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!-- Compiled and minified Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script> 
-    <!-- Font Awesome
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
+    <!-- Compiled and minified Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <!-- CSS File -->
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             <h3>Question 1</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q1">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -48,7 +48,7 @@
             <h3>Question 2</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q2">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -61,7 +61,7 @@
             <h3>Question 3</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q3">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -75,7 +75,7 @@
             <h3>Question 4</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q4">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -88,7 +88,7 @@
             <h3>Question 5</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q5">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -102,7 +102,7 @@
             <h3>Question 6</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q6">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -115,7 +115,7 @@
             <h3>Question 7</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q7">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -129,7 +129,7 @@
             <h3>Question 8</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q8">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -143,7 +143,7 @@
             <h3>Question 9</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q9">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -156,7 +156,7 @@
             <h3>Question 10</h3>
             <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
             <select id="q10">
-                <option value="" disabled selected>Choose your option</option>
+                <option value="0" disabled selected>Choose your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -168,13 +168,83 @@
 
         <div class="text-center">
             <button class="btn btn-success" type="submit" name="action" id="submitButton">Submit
-                    <i class="fas fa-coffee"></i>
+                <i class="fas fa-coffee"></i>
             </button>
         </div>
 
     </div>
+    <div id="friendModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Your New Friend</h3>
+            </div>
+            <div class="modal-body">
+                <h2 id="bestFriend"></h2>
+                <img src="#" id="bestFriendPhoto">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
+    </div>
+    <footer>
+        <div class="container">
+            <a href="/api/friends">Friends</a>
+            |
+            <a href="https://github.com/slevy239/FriendFinder">GitHub</a>
+        </div>
+    </footer>
 
 </body>
+<script>
+    $("#submitButton").on("click", function (event) {
+        event.preventDefault();
+
+        var valid = true;
+
+        if ($("#name").val() === "" || $("#photo").val() === "") {
+            valid = false;
+            alert("enter name or photo!")
+        } else if ($("#q1").val() === null || $("#q2").val() === null || $("#q3").val() === null || $("#q3").val() === null || $("#q4").val() === null || $("#q5").val() === null || $("#q6").val() === null || $("#q7").val() === null || $("#q8").val() === null || $("#q9").val() === null || $("#q10").val() === "") {
+            valid = false;
+            alert("answer all the questions!")
+        } if (valid === true) {
+            var newUser = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+            alert("searching for friend!")
+            var url = window.location.origin;
+            console.log(url);
+            console.log(newUser);
+
+            $.post(url + "api/friends", newUser, function(data) {
+                $("#bestFriend").text(data.name);
+                $("#bestFriendPhoto").attr("src", data.photo);
+                $("#bestFriendModal"),modal("toggle");
+            })
+        }
+    })
+</script>
+<style>
+    .input-field {
+        border-bottom: black solid;
+        padding-bottom: 30px;
+    }
+</style>
 
 </html>
