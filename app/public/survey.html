@@ -167,7 +167,7 @@
         <br>
 
         <div class="text-center">
-            <button class="btn btn-success" type="submit" name="action" id="submitButton">Submit
+            <button class="btn btn-success" type="button" data-toggle="modal"data-target="results-modal" aria-hidden="true" name="action" id="submitButton">Submit
                 <i class="fas fa-coffee"></i>
             </button>
         </div>
@@ -193,7 +193,6 @@
                 </div>
                 <hr>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -218,10 +217,10 @@
 
         if ($("#name").val() === "" || $("#photo").val() === "") {
             valid = false;
-            // alert("Enter name or photo!")
+            alert("Enter name or photo!")
         } else if ($("#q1").val() === null || $("#q2").val() === null || $("#q3").val() === null || $("#q3").val() === null || $("#q4").val() === null || $("#q5").val() === null || $("#q6").val() === null || $("#q7").val() === null || $("#q8").val() === null || $("#q9").val() === null || $("#q10").val() === "") {
             valid = false;
-            // alert("Answer all the questions!")
+            alert("Answer all the questions!")
         } if (valid === true) {
             var newUser = {
                 name: $("#name").val().trim(),
@@ -239,19 +238,16 @@
                     $("#q10").val()
                 ]
             };
+            $("#results-modal").modal('toggle');
             // alert("searching for friend!")
             var url = window.location.origin;
 
             $.post("api/friends", newUser, function (data) {
-                if (data) {
                     console.log("Added to the Friends List")
-
+                    alet("added")
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
                     $("#results-modal").modal('toggle');
-                } else {
-                    console.log("Please complete out the survey!");
-                }
                 // console.log(data);
                 // console.log("Searching The Database!")
                 $("#name").val("");
