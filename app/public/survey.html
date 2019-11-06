@@ -218,11 +218,13 @@
 </body>
 
 <script>
-    // $('document').ready(function () {
-    //     $("#modal").modal('show');
-    //     alert("modal")
 
-    // })
+    var scores = [];
+    var numberScoresArr = [];
+    var surveyObj = {};
+    var state = false;
+
+
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
         // $("#modal").modal('show');
@@ -260,16 +262,13 @@
                 console.log("Added to the Friends List")
                 alet("added")
                 $("#match-name").text(data[1].name);
-                $("#match-img").attr("src", data[1].photo);
+                $("#match-img").attr("src", data[1].img);
                 $("#results-modal").modal('show');
                 // console.log(data);
                 // console.log("Searching The Database!")
                 $("#name").val("");
                 $("#photo").val("");
 
-                // $("#bestFriend").text(data.name);
-                // $("#bestFriendPhoto").attr("src", data.photo);
-                // $("#bestFriendModal"), modal("toggle");
             })
         }
     })
