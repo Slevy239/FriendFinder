@@ -260,7 +260,6 @@
 
             $.post("api/friends", newUser, function (data) {
                 console.log("Added to the Friends List")
-                alet("added")
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.img);
                 $("#results-modal").modal('show');
