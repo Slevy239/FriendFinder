@@ -16,10 +16,10 @@
     <!-- Compiled and minified Materialize JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <!-- CSS File -->
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/style/style.css"> -->
 </head>
 
-<body>
+<body class>
     <div class="container">
         <div class="text-center">
             <h2>Survey Questions</h2>
@@ -173,21 +173,32 @@
         </div>
 
     </div>
-    <div id="friendModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">Your New Friend</h3>
-            </div>
-            <div class="modal-body">
-                <h2 id="bestFriend"></h2>
-                <img src="#" id="bestFriendPhoto">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
+    <!-- modal -->
+    <div class="modal fade in" id="results-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Best Match</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <hr>
+                <div class="modal-body">
+                    <h2 id="match-name"></h2>
+                    <img id="match-img">
+                </div>
+                <hr>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-    </div>
+
     </div>
     <footer>
         <div class="container">
@@ -198,6 +209,7 @@
     </footer>
 
 </body>
+
 <script>
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
@@ -206,10 +218,10 @@
 
         if ($("#name").val() === "" || $("#photo").val() === "") {
             valid = false;
-            alert("Enter name or photo!")
+            // alert("Enter name or photo!")
         } else if ($("#q1").val() === null || $("#q2").val() === null || $("#q3").val() === null || $("#q3").val() === null || $("#q4").val() === null || $("#q5").val() === null || $("#q6").val() === null || $("#q7").val() === null || $("#q8").val() === null || $("#q9").val() === null || $("#q10").val() === "") {
             valid = false;
-            alert("Answer all the questions!")
+            // alert("Answer all the questions!")
         } if (valid === true) {
             var newUser = {
                 name: $("#name").val().trim(),
@@ -227,14 +239,21 @@
                     $("#q10").val()
                 ]
             };
-            alert("searching for friend!")
+            // alert("searching for friend!")
             var url = window.location.origin;
-            console.log(url);
-            console.log(newUser);
 
             $.post("api/friends", newUser, function (data) {
-                console.log(data);
-                console.log("Searching The Database!")
+                if (data) {
+                    console.log("Added to the Friends List")
+
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
+                    $("#results-modal").modal('toggle');
+                } else {
+                    console.log("Please complete out the survey!");
+                }
+                // console.log(data);
+                // console.log("Searching The Database!")
                 $("#name").val("");
                 $("#photo").val("");
 
