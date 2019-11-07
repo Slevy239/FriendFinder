@@ -191,6 +191,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <div class="text-center">
+
                             <h2 class="modal-title">Best Match</h2>
                         </div>
                     </div>
@@ -235,6 +236,7 @@
 
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
+        // $("#modal").modal('show');
 
         var valid = true;
 
@@ -268,7 +270,7 @@
             $.post("api/friends", newUser, function (data) {
                 console.log("Added to the Friends List")
                 $("#match-name").text(data.name);
-                $("#match-img").attr("src", data.photo);
+                $("#match-img").attr("src", data.img);
                 $("#results-modal").modal('show');
                 // console.log(data);
                 // console.log("Searching The Database!")
