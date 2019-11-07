@@ -268,7 +268,7 @@
             $.post("api/friends", newUser, function (data) {
                 console.log("Added to the Friends List")
                 $("#match-name").text(data.name);
-                $("#match-img").attr("src", data.img);
+                $("#match-img").attr("src", data.photo);
                 $("#results-modal").modal('show');
                 // console.log(data);
                 // console.log("Searching The Database!")
