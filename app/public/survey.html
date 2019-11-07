@@ -235,7 +235,6 @@
 
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
-        // $("#modal").modal('show');
 
         var valid = true;
 
@@ -248,7 +247,7 @@
         } if (valid === true) {
             var newUser = {
                 name: $("#name").val().trim(),
-                img: $("#photo").val().trim(),
+                photo: $("#photo").val().trim(),
                 scores: [
                     $("#q1").val(),
                     $("#q2").val(),
