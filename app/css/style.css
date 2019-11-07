@@ -16,8 +16,7 @@ h2#title {
     padding-bottom: 10px;
 }
 
-h2,
-h3 {
+h2, h3 {
     color: blue;
 }
 
@@ -32,6 +31,7 @@ body {
 img#match-img {
     width: 150px;
 }
+
 body {
     background-color: #e9ebee;
 }

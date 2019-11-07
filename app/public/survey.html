@@ -24,7 +24,7 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-           <!-- Custom CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -218,12 +218,10 @@
     </div>
     <footer>
         <div class="container" id="foot">
-            <!-- <div class="text-center"> -->
 
-                <a href="/api/friends">Friends</a>
-                |
-                <a href="https://github.com/slevy239/FriendFinder">GitHub</a>
-            <!-- </div> -->
+            <a href="/api/friends">Friends</a>
+            |
+            <a href="https://github.com/slevy239/FriendFinder">GitHub</a>
         </div>
     </footer>
 
@@ -231,24 +229,23 @@
 
 <script>
 
-    var scores = [];
-    var numberScoresArr = [];
-    var surveyObj = {};
-    var state = false;
 
 
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
-        // $("#modal").modal('show');
 
         var valid = true;
-
+        //check for input
         if ($("#name").val() === "" || $("#photo").val() === "") {
             valid = false;
             alert("Enter name or photo!")
+
+            //check for input
         } else if ($("#q1").val() === null || $("#q2").val() === null || $("#q3").val() === null || $("#q3").val() === null || $("#q4").val() === null || $("#q5").val() === null || $("#q6").val() === null || $("#q7").val() === null || $("#q8").val() === null || $("#q9").val() === null || $("#q10").val() === "") {
             valid = false;
             alert("Answer all the questions!")
+
+            //input value into object
         } if (valid === true) {
             var newUser = {
                 name: $("#name").val().trim(),
@@ -266,17 +263,16 @@
                     $("#q10").val()
                 ]
             };
-            $("#modal").modal('show');
             // alert("searching for friend!")
             var url = window.location.origin;
 
             $.post("api/friends", newUser, function (data) {
-                console.log("Added to the Friends List")
+                //modal display                
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.img);
                 $("#results-modal").modal('show');
-                // console.log(data);
-                // console.log("Searching The Database!")
+
+                //setting inputs
                 $("#name").val("");
                 $("#photo").val("");
 
@@ -284,4 +280,5 @@
         }
     })
 </script>
+
 </html>
