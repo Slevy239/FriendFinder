@@ -229,23 +229,24 @@
 
 <script>
 
+    // var scores = [];
+    // var numberScoresArr = [];
+    // var surveyObj = {};
+    // var state = false;
 
 
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
+        // $("#modal").modal('show');
 
         var valid = true;
-        //check for input
+
         if ($("#name").val() === "" || $("#photo").val() === "") {
             valid = false;
             alert("Enter name or photo!")
-
-            //check for input
         } else if ($("#q1").val() === null || $("#q2").val() === null || $("#q3").val() === null || $("#q3").val() === null || $("#q4").val() === null || $("#q5").val() === null || $("#q6").val() === null || $("#q7").val() === null || $("#q8").val() === null || $("#q9").val() === null || $("#q10").val() === "") {
             valid = false;
             alert("Answer all the questions!")
-
-            //input value into object
         } if (valid === true) {
             var newUser = {
                 name: $("#name").val().trim(),
@@ -263,16 +264,17 @@
                     $("#q10").val()
                 ]
             };
+            $("#modal").modal('show');
             // alert("searching for friend!")
             var url = window.location.origin;
 
             $.post("api/friends", newUser, function (data) {
-                //modal display                
+                console.log("Added to the Friends List")
                 $("#match-name").text(data.name);
                 $("#match-img").attr("src", data.img);
                 $("#results-modal").modal('show');
-
-                //setting inputs
+                // console.log(data);
+                // console.log("Searching The Database!")
                 $("#name").val("");
                 $("#photo").val("");
 
