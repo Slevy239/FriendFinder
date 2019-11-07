@@ -31,9 +31,9 @@ module.exports = function (app) {
                 minDiff = totalDifference;
             }
         }
+
+        
         friends.push(user)
         res.json(friends[index]);
-
-
     })
 }
